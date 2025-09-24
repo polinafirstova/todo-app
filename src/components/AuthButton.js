@@ -22,7 +22,6 @@ export default function AuthButton() {
                 await signOut(auth); // Выход из Firebase Auth
                 dispatch(clearUser()); // Удаление данных пользователя в Redux
                 navigate('/login'); // Навигация на страницу логина
-                console.log('Пользователь вышел из системы');
             } catch (error) {
                 console.error('Ошибка при выходе:', error);
             }

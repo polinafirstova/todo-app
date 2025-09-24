@@ -1,5 +1,5 @@
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
-import { notification } from 'antd';
+import useNotification from 'antd/es/notification/useNotification';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,8 @@ import { setAuthError, setAuthLoading, setUser } from '../features/authSlice';
 
 // Страница входа в систему
 export default function LoginPage() {
+    // Хук useNotification для отображения уведомлений
+    const [api, contextHolder] = useNotification();
     // Хуки для навигации, диспетчера Redux и состояния загрузки
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -40,7 +42,7 @@ export default function LoginPage() {
             dispatch(setUser({ uid: user.uid, email: user.email }));
 
             // Отображение уведомления об успешном входе
-            notification.success({
+            api.success({
                 message: 'Вход выполнен успешно!',
                 placement: 'topRight',
             });
@@ -53,9 +55,9 @@ export default function LoginPage() {
             dispatch(setAuthError(error.message));
 
             // Отображение уведомления об ошибке
-            notification.error({
+            api.error({
                 message: 'Ошибка входа',
-                description: error.message,
+                placement: 'topRight',
             });
         } finally {
             // Сброс состояния загрузки
@@ -68,7 +70,7 @@ export default function LoginPage() {
         console.log('Failed:', errorInfo);
 
         // Отображение уведомления об ошибке валидации
-        notification.error({
+        api.error({
             message: 'Ошибка валидации',
             description: 'Пожалуйста, проверьте введенные данные.',
             placement: 'topRight',
@@ -76,43 +78,46 @@ export default function LoginPage() {
     };
 
     return (
-        <LoginForm
-            title='Вход в систему'
-            name="loginForm"
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-        >
-            <FormItem
-                label="Электронная почта"
-                name="email"
-                rules={[
-                    { required: true, message: 'Пожалуйста, введите ваш Email!' },
-                    { type: 'email', message: 'Некорректный формат Email!' },
-                ]}
+        <>
+            {contextHolder}
+            <LoginForm
+                title='Вход в систему'
+                name="loginForm"
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
             >
-                <Input prefix={<MailOutlined />} placeholder="Email" />
-            </FormItem>
-            <FormItem
-                label="Пароль"
-                name="password"
-                rules={[
-                    { required: true, message: 'Пожалуйста, введите ваш пароль!' },
-                ]}
-            >
-                <Input password prefix={<LockOutlined />} placeholder="Пароль" />
-            </FormItem>
-            <FormItem>
-                <Button block type="primary" htmlType="submit" loading={authLoading}>
-                    Войти
-                </Button>
-            </FormItem>
-            <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                Нет аккаунта?
-                <Button type="link" onClick={() => navigate('/register')}>
-                    Зарегистрироваться
-                </Button>
-            </div>
-        </LoginForm>
+                <FormItem
+                    label="Электронная почта"
+                    name="email"
+                    rules={[
+                        { required: true, message: 'Пожалуйста, введите ваш Email!' },
+                        { type: 'email', message: 'Некорректный формат Email!' },
+                    ]}
+                >
+                    <Input prefix={<MailOutlined />} placeholder="Email" />
+                </FormItem>
+                <FormItem
+                    label="Пароль"
+                    name="password"
+                    rules={[
+                        { required: true, message: 'Пожалуйста, введите ваш пароль!' },
+                    ]}
+                >
+                    <Input password prefix={<LockOutlined />} placeholder="Пароль" />
+                </FormItem>
+                <FormItem>
+                    <Button block type="primary" htmlType="submit" loading={authLoading}>
+                        Войти
+                    </Button>
+                </FormItem>
+                <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                    Нет аккаунта?
+                    <Button type="link" onClick={() => navigate('/register')}>
+                        Зарегистрироваться
+                    </Button>
+                </div>
+            </LoginForm>
+        </>
     );
 }
