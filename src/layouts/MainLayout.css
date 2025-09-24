@@ -1,0 +1,105 @@
+/* Стили для основного макета приложения */
+.main-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стили для шапки приложения */
+.main-header {
+    padding: 0;
+    height: 64px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+    background-color: var(--ant-layout-header-background);
+    color: var(--ant-layout-header-color);
+}
+
+/* Стили для колонки содержимого шапки */
+.header-content-col {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Стили для контейнера содержимого шапки */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    width: 100%;
+}
+
+/* Стили для заголовка приложения */
+.main-header .header-left h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: var(--ant-layout-header-color);
+}
+
+/* Стили для правой части шапки */
+.main-header .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Стили для приветствия пользователя */
+.user-greeting {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+    max-width: 180px;
+    color: var(--ant-layout-header-color);
+}
+
+/* Стили для медиа-запроса (на экранах меньше 768px) */
+@media (max-width: 768px) {
+    .user-greeting {
+        display: none !important;
+    }
+}
+
+/* Стили для основного содержимого приложения */
+.main-content {
+    flex-grow: 1;
+    padding: 30px 0;
+    background-color: var(--ant-body-background);
+    display: flex;
+    justify-content: center;
+}
+
+/* Стили для строки содержимого */
+.content-row {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+/* Стили для колонки содержимого */
+.content-col {
+    background-color: var(--ant-card-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+}
+
+/* Стили для body */
+body {
+    background-color: var(--ant-body-background);
+    color: var(--ant-text-color);
+}
+
+/* Стили для темной темы */
+body.dark-theme {
+    background-color: var(--ant-body-background);
+    color: var(--ant-text-color);
+}

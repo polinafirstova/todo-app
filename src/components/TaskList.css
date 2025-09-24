@@ -1,0 +1,15 @@
+/* Стили для списка задач */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Стили для пустого списка задач */
+.empty-task-list {
+    text-align: center;
+    color: #888;
+    padding: 40px 0;
+    font-size: 1.1em;
+}

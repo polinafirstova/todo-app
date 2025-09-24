@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --ant-body-background: #f0f2f5;
+  --ant-text-color: rgba(0, 0, 0, 0.85);
+  --ant-layout-header-background: #001529;
+  --ant-layout-header-color: #ffffff;
+  --ant-card-background: #ffffff;
+  --ant-primary-color: #1890ff;
+  --ant-border-color: #e9e9e9;
+  --priority-low-bg: #f6ffed;
+  --priority-low-color: #389e0d;
+  --priority-medium-bg: #fff7e6;
+  --priority-medium-color: #d46b08;
+  --priority-high-bg: #fff1f0;
+  --priority-high-color: #f5222f;
+}
+
+body.dark-theme {
+  --ant-body-background: #181818;
+  --ant-text-color: #e0e0e0;
+  --ant-layout-header-background: #1f1f1f;
+  --ant-layout-header-color: #e0e0e0;
+  --ant-card-background: #292929;
+  --ant-border-color: #64b5f6;
+  --priority-low-bg: #1a3312;
+  --priority-low-color: #90ee90;
+  --priority-medium-bg: #332a1a;
+  --priority-medium-color: #ffb547;
+  --priority-high-bg: #331a1a;
+  --priority-high-color: #ff6b6b;
+}

@@ -1,0 +1,78 @@
+/* Стили для панели управления задачами */
+.task-controls {
+    padding: 20px;
+    /* Переменная для цвета фона */
+    background-color: var(--ant-card-background);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Стили для контейнера поиска */
+.task-controls .search-container {
+    width: 100%;
+}
+
+.task-controls .search-container .ant-input-search {
+    height: 40px;
+    width: 100%;
+}
+
+/* Стили для кнопки поиска */
+.task-controls .search-container .ant-input-search .ant-btn {
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стили для строки с элементами управления */
+.task-controls .controls-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Стили для контейнера кнопки добавления */
+.task-controls .add-button-container {
+    flex-shrink: 0;
+    height: 40px;
+}
+
+/* Стили для кнопки добавления */
+.task-controls .add-button-container .ant-btn {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стили для контейнера фильтров */
+.task-controls .filter-container {
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 40px;
+    min-width: 280px;
+}
+
+/* Стили для группы радиокнопок фильтров */
+.task-controls .filter-container .ant-radio-group-solid {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+/* Стили для радиокнопок фильтров */
+.task-controls .filter-container .ant-radio-button-wrapper {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 13px;
+}

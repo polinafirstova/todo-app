@@ -1,0 +1,144 @@
+/* Стили для элемента задачи */
+.task-item {
+    background-color: var(--ant-card-background);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    color: var(--ant-text-color);
+}
+
+/* Стили для выполненной задачи */
+.task-item.completed {
+    background-color: color-mix(in srgb, var(--ant-card-background) 90%, #606060);
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+
+.task-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Стили для темной темы */
+body.dark-theme .task-item {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .task-item.completed {
+    background-color: color-mix(in srgb, var(--ant-card-background) 80%, #303030);
+    opacity: 0.8;
+}
+
+body.dark-theme .task-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Стили для контента задачи */
+.task-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+/* Стили для чекбокса задачи */
+.task-checkbox .ant-checkbox-wrapper {
+    margin-right: 10px;
+    font-size: 1.2em;
+    color: var(--ant-primary-color);
+}
+
+/* Стили для деталей задачи */
+.task-details {
+    flex-grow: 1;
+}
+
+/* Стили для текста задачи */
+.task-text {
+    font-size: 1.1em;
+    font-weight: 500;
+    word-break: break-word;
+    color: var(--ant-text-color);
+}
+
+/* Стили для описания задачи */
+.task-description {
+    font-size: 0.95em;
+    color: var(--ant-text-color);
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+/* Стили для мета-данных задачи */
+.task-meta {
+    font-size: 0.85em;
+    color: var(--ant-text-color);
+    opacity: 0.8;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Стили для тега приоритета */
+.task-meta .ant-tag {
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Стили для низкого приоритета */
+.priority-low .ant-tag {
+    background-color: var(--priority-low-bg);
+    color: var(--priority-low-color);
+}
+
+/* Стили для среднего приоритета */
+.priority-medium .ant-tag {
+    background-color: var(--priority-medium-bg);
+    color: var(--priority-medium-color);
+}
+
+/* Стили для высокого приоритета */
+.priority-high .ant-tag {
+    background-color: var(--priority-high-bg);
+    color: var(--priority-high-color);
+}
+
+/* Стили для действий с задачей */
+.task-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Стили для кнопки действия */
+.action-button {
+    color: var(--ant-text-color);
+    opacity: 0.8;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.action-button:hover {
+    color: var(--ant-primary-color);
+    background-color: color-mix(in srgb, var(--ant-primary-color) 10%, transparent);
+}
+
+/* Стили для опасной кнопки действия */
+.action-button.ant-btn-dangerous {
+    color: #ff4d4f;
+}
+
+.action-button.ant-btn-dangerous:hover {
+    color: #ff4d4f;
+    background-color: rgba(255, 77, 79, 0.1);
+}
